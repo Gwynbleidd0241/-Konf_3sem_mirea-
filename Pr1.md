@@ -29,3 +29,13 @@
 
 ## Задача №5 <br>
 Написать программу для регистрации пользовательской команды (правильные права доступа и копирование в /usr/local/bin).
+Рассмотрим код и результат вывода: <br>
+
+<img width="210" alt="Снимок экрана 2024-09-08 в 13 51 44" src="https://github.com/user-attachments/assets/84d79b12-8c08-460a-8b43-4849cd9d35ff"><br>
+
+<img width="437" alt="Снимок экрана 2024-09-08 в 13 51 32" src="https://github.com/user-attachments/assets/ad0c6cb0-a577-4bbb-8cbe-166ac8bb6027">
+
+## Задача №6 <br>
+
+
+
