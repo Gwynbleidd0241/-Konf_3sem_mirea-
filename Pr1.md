@@ -11,6 +11,8 @@
 <img width="646" alt="КУ | Практика 1 | Задание 2 | Лазаренко С A" src="https://github.com/user-attachments/assets/45b7bb06-5347-4e7d-bf2b-b58c04a0f877">
 
 ## Задача №3 <br>
-Вывести данные /etc/protocols в отформатированном и отсортированном порядке для 5 наибольших портов.
+Написать программу banner средствами bash для вывода текстов, как в следующем примере (размер баннера должен меняться!)
 Рассмотрим код:<br>
 <img width="191" alt="3" src="https://github.com/user-attachments/assets/ec912b4f-030d-4439-8820-a4800c69a7c7">
+Результат вывода программы, написанной на Python, через терминал MacOS:<br>
+<img width="303" alt="Снимок экрана 2024-09-08 в 12 55 57" src="https://github.com/user-attachments/assets/30335d1e-8edd-4896-92a3-a928fd174233">
