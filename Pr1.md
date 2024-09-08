@@ -36,6 +36,15 @@
 <img width="437" alt="Снимок экрана 2024-09-08 в 13 51 32" src="https://github.com/user-attachments/assets/ad0c6cb0-a577-4bbb-8cbe-166ac8bb6027">
 
 ## Задача №6 <br>
+Написать программу для проверки наличия комментария в первой строке файлов с расширением c, js и py.
+Рассмотрим код и результат вывода: <br>
+
+<img width="433" alt="Снимок экрана 2024-09-08 в 14 17 28" src="https://github.com/user-attachments/assets/b8a0bb02-92d5-4ea3-a4cb-9840108c8460"> <br>
+
+<img width="436" alt="Снимок экрана 2024-09-08 в 14 16 57" src="https://github.com/user-attachments/assets/67c2fb06-7a3f-47dd-b172-a6301032a19e">
+
+## Задача 7 <br>
+
 
 
 
