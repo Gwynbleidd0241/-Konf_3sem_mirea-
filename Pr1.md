@@ -23,6 +23,9 @@
 Написать программу для вывода всех идентификаторов (по правилам C/C++ или Java) в файле (без повторений).
 Рассмотрим код и результат вывода:<br>
 
-<img width="779" alt="Снимок экрана 2024-09-08 в 13 08 34" src="https://github.com/user-attachments/assets/c38a9717-a4e3-4f45-8e6c-6c193e6e01d8">
+<img width="779" alt="Снимок экрана 2024-09-08 в 13 08 34" src="https://github.com/user-attachments/assets/c38a9717-a4e3-4f45-8e6c-6c193e6e01d8"><br>
 
 <img width="369" alt="4" src="https://github.com/user-attachments/assets/c627ceb4-12cc-4f89-a462-04f8619ef4dc">
+
+## Задача №5 <br>
+Написать программу для регистрации пользовательской команды (правильные права доступа и копирование в /usr/local/bin).
