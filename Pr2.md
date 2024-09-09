@@ -23,3 +23,8 @@
 После создадим файл matplotlib_dependencies.dot с содержанием:<br>
 
 ![image](https://github.com/user-attachments/assets/e89bd26c-e017-4877-b3e6-f3ad09845661)
+
+Также создадим файл express_dependencies.dot с содержанием:<br>
+
+![image](https://github.com/user-attachments/assets/4eb79da4-b906-4f6f-a3d7-40225d3480d0)
+
