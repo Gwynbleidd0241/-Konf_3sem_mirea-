@@ -11,7 +11,8 @@
 
 ![image](https://github.com/user-attachments/assets/bb666485-1c54-4c82-a6c0-f61b84c43164)<br>
 
-![image](https://github.com/user-attachments/assets/645e54bf-4bed-4fef-8976-ff581e809e06)
+![image](https://github.com/user-attachments/assets/645e54bf-4bed-4fef-8976-ff581e809e06)<br>
+Для установки пакета напрямую из репозитория надо клонировать этот репозиторий к себе, а затем прописать команду npm install.
 
 ## Задание 3
 Сформировать graphviz-код и получить изображения зависимостей matplotlib и express.
