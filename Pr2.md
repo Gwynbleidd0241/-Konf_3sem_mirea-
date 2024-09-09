@@ -9,3 +9,6 @@
 ## Задание 2
 Вывести служебную информацию о пакете express (JavaScript). Разобрать основные элементы содержимого файла со служебной информацией из пакета.
 
+![image](https://github.com/user-attachments/assets/bb666485-1c54-4c82-a6c0-f61b84c43164)<br>
+
+![image](https://github.com/user-attachments/assets/645e54bf-4bed-4fef-8976-ff581e809e06)
