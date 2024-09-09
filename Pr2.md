@@ -15,3 +15,11 @@
 
 ## Задание 3
 Сформировать graphviz-код и получить изображения зависимостей matplotlib и express.
+
+Скачаем graphviz с помощью Homebrew:<br>
+
+![image](https://github.com/user-attachments/assets/fcb3337d-3d94-498c-b92d-19c425ab74d2)
+
+После создадим файл matplotlib_dependencies.dot с содержанием:<br>
+
+![image](https://github.com/user-attachments/assets/e89bd26c-e017-4877-b3e6-f3ad09845661)
