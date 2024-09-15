@@ -66,3 +66,42 @@ output ["\(x1)\(x2)\(x3)\(x4)\(x5)\(x6)\n"];
 
 ![image](https://github.com/user-attachments/assets/2ff7b55c-e32e-4386-940a-1c26d584a3f6)<br>
 
+## Задание 6
+
+![image](https://github.com/user-attachments/assets/b1efad2a-d648-4588-b404-54a5d4742da5)<br>
+
+```
+set of int: FooVersions = 1..2;
+set of int: LeftVersions = 1..1;
+set of int: RightVersions = 1..1;
+set of int: SharedVersions = 1..2;
+set of int: TargetVersions = 1..2;
+set of int: RootVersions = 1..1; 
+
+var FooVersions: selected_foo;
+var LeftVersions: selected_left;
+var RightVersions: selected_right;
+var SharedVersions: selected_shared;
+var TargetVersions: selected_target;
+var RootVersions: selected_root;
+
+constraint selected_root = 1;
+constraint selected_foo = 1;
+constraint selected_target = 2;
+constraint selected_left = 1;
+constraint selected_right = 1;
+constraint selected_shared >= 1;
+constraint selected_shared < 2;
+
+solve satisfy;
+
+output [
+  "Версия foo: ", show(selected_foo),".0.0", "\n",
+  "Версия left: ", show(selected_left),".0.0", "\n",
+  "Версия right: ", show(selected_right),".0.0", "\n",
+  "Версия shared: ", show(selected_shared),".0.0", "\n",
+  "Версия target: ", show(selected_target),".0.0", "\n",
+  "Версия root: ", show(selected_root),".0.0", "\n"
+];
+```
+
