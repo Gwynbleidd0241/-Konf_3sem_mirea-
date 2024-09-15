@@ -104,4 +104,9 @@ output [
   "Версия root: ", show(selected_root),".0.0", "\n"
 ];
 ```
+В результате получим:<br>
+
+![image](https://github.com/user-attachments/assets/e726a118-3b09-4321-95b2-c8a32c6d29bc)<br>
+
+## Задание 7
 
