@@ -53,5 +53,8 @@ solve minimize 100000*x1 + 10000*x2 + 1000*x3 + 100*x4 + 10*x5 + x6;
 
 output ["\(x1)\(x2)\(x3)\(x4)\(x5)\(x6)\n"];
 ```
+![image](https://github.com/user-attachments/assets/ebd163c7-52a2-4cda-ac23-18a7b3ee741a) <br>
+
+## Задание 5
 
 
