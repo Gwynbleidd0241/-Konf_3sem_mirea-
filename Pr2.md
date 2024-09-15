@@ -64,4 +64,5 @@ output ["\(x1)\(x2)\(x3)\(x4)\(x5)\(x6)\n"];
 
 ## Задание 5
 
+![image](https://github.com/user-attachments/assets/2ff7b55c-e32e-4386-940a-1c26d584a3f6)<br>
 
