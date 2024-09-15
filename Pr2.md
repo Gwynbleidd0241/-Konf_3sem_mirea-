@@ -29,6 +29,13 @@
 
 ![image](https://github.com/user-attachments/assets/4eb79da4-b906-4f6f-a3d7-40225d3480d0)
 
+Изображение зависимости matplotlib:<br>
+
+![image](https://github.com/user-attachments/assets/0ca17941-c707-4a05-88c0-0154220b17f3)<br>
+
+Изображение зависимости express:<br>
+
+![image](https://github.com/user-attachments/assets/6150edd0-d4b2-4fe0-b563-1ab751ab7040)<br>
 
 ## Задание 4
 Изучить основы программирования в ограничениях. Установить MiniZinc, разобраться с основами его синтаксиса и работы в IDE.<br>
