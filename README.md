@@ -1,3 +1,3 @@
-- [ДЗ_1](https://github.com/Gwynbleidd0241/--Konf./tree/main/Dz1)
+- [Dz1](https://github.com/Gwynbleidd0241/--Konf./tree/main/Dz1)
 - [Pr1(finished)](https://github.com/Gwynbleidd0241/--Konf./blob/main/Pr1.md)
 - [Pr2(unfinished)](https://github.com/Gwynbleidd0241/--Konf./blob/main/Pr2.md)
