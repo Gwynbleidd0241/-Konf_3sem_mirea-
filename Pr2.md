@@ -95,7 +95,7 @@ output [
 ```
 <br>
 Результат программы:<br>
-![image](https://github.com/user-attachments/assets/41cd9d88-81dd-4e91-a216-14d60d73e361)
+![image](https://github.com/user-attachments/assets/d3007a60-66d7-4ed1-bc39-7aa2cfa68810)<br>
 
 ## Задание 6
 
