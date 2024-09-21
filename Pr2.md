@@ -42,25 +42,19 @@
 Решить на MiniZinc задачу о счастливых билетах. Добавить ограничение на то, что все цифры билета должны быть различными (подсказка: используйте all_different).
 Найти минимальное решение для суммы 3 цифр.<br>
 ```
-var 0..9: x1;
-var 0..9: x2;
-var 0..9: x3;
-var 0..9: x4;
-var 0..9: x5;
-var 0..9: x6;
+include "globals.mzn";
 
-% Ограничение на сумму: сумма первых трёх цифр равна сумме последних трёх
-constraint x1 + x2 + x3 = x4 + x5 + x6;
+array[1..6] of var 0..9: numbers;
+constraint all_different(numbers);
 
-% Дополнительное ограничение: сумма первых трёх цифр равна 3
-constraint x1 + x2 + x3 = 3;
+var int: FirstSum = sum(numbers[1..3]);
+constraint FirstSum == sum(numbers[4..6]);
 
-% Минимизируем значение билета
-solve minimize 100000*x1 + 10000*x2 + 1000*x3 + 100*x4 + 10*x5 + x6;
+solve minimize FirstSum;
 
-output ["\(x1)\(x2)\(x3)\(x4)\(x5)\(x6)\n"];
+output ["Билет - ", show(numbers), " Сумма 3х цифр - ", show(FirstSum)];
 ```
-![image](https://github.com/user-attachments/assets/ebd163c7-52a2-4cda-ac23-18a7b3ee741a) <br>
+![image](https://github.com/user-attachments/assets/d9eb25f6-40d9-4f5d-97e8-d84e5b8e34f0)<br>
 
 ## Задание 5
 
