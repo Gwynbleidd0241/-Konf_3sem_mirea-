@@ -48,3 +48,11 @@ local students = [
   students: students,
 }
 ```
+Установим Jsonnet на свой компьютер с помощью терминал:<br>
+```
+brew install jsonnet
+```
+Далее создадим файл Pr3.jsonnet, в который добавим приведенный в дано код, и скомпелируем файл в JSON, выполнив:<br>
+```
+jsonnet Pr3.jsonnet -o Pr3_1zd.json
+```
