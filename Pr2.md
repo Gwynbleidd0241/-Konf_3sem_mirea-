@@ -60,6 +60,7 @@ output ["Билет - ", show(numbers), " Сумма 3х цифр - ", show(Firs
 
 ![image](https://github.com/user-attachments/assets/2ff7b55c-e32e-4386-940a-1c26d584a3f6)<br>
 
+
 ## Задание 6
 
 ![image](https://github.com/user-attachments/assets/b1efad2a-d648-4588-b404-54a5d4742da5)<br>
