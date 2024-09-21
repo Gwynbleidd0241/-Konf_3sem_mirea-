@@ -94,6 +94,7 @@ output [
 ];
 ```
 <br>
+
 Результат программы:<br>
 
 ![image](https://github.com/user-attachments/assets/a48861aa-5471-4d91-8b15-bd3c1ccb6281)<br>
@@ -143,3 +144,28 @@ output [
 ## Задание 7
 Представить на MiniZinc задачу о зависимостях пакетов в общей форме, чтобы конкретный экземпляр задачи описывался только
 своим набором данных.<br>
+```
+int: num_packages;
+
+set of int: Packages = 1..num_packages;
+
+array[Packages] of set of int: Versions;
+
+array[Packages] of var int: selected_version;
+
+array[Packages] of set of int: dependencies;
+
+array[Packages, Packages] of int: min_version;
+
+array[Packages, Packages] of int: max_version;
+
+constraint
+  forall(i in Packages) (
+    forall(dep in dependencies[i]) (
+      selected_version[dep] >= min_version[i, dep] /\
+      selected_version[dep] <= max_version[i, dep]
+    )
+  );
+
+solve satisfy;
+```
