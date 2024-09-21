@@ -60,3 +60,8 @@ jsonnet Pr3.jsonnet -o Pr3_1zd.json
 ```
 cat Pr3_1zd.json
 ```
+Результат:<br>
+
+![image](https://github.com/user-attachments/assets/9328d131-bdff-4911-8a3c-2597d7a213ac)<br>
+
+# Задача 2
