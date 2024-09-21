@@ -60,6 +60,42 @@ output ["Билет - ", show(numbers), " Сумма 3х цифр - ", show(Firs
 
 ![image](https://github.com/user-attachments/assets/2ff7b55c-e32e-4386-940a-1c26d584a3f6)<br>
 
+```
+set of int: MenuVersions = 1..6;
+set of int: DropdownVersions = 1..5;
+set of int: IconVersions = 1..2;
+
+array[MenuVersions] of int: menu = [150, 140, 130, 120, 110, 100];
+array[DropdownVersions] of int: dropdown = [230, 220, 210, 200, 180];
+array[IconVersions] of int: icons = [200, 100];
+
+var MenuVersions: selected_menu;
+var DropdownVersions: selected_dropdown;
+var IconVersions: selected_icons;
+
+constraint
+    (selected_menu = 1 -> selected_dropdown in 1..3) /\
+    (selected_menu = 2 -> selected_dropdown in 2..4) /\
+    (selected_menu = 3 -> selected_dropdown in 3..5) /\
+    (selected_menu = 4 -> selected_dropdown in 4..5) /\
+    (selected_menu = 5 -> selected_dropdown = 5) /\
+    (selected_dropdown = 1 -> selected_icons = 1) /\
+    (selected_dropdown = 2 -> selected_icons in 1..2) /\
+    (selected_dropdown = 3 -> selected_icons in 1..2) /\
+    (selected_dropdown = 4 -> selected_icons in 1..2) /\
+    (selected_dropdown = 5 -> selected_icons in 1..2);
+
+solve satisfy;
+
+output [
+    "Selected menu version: \(menu[selected_menu])\n",
+    "Selected dropdown version: \(dropdown[selected_dropdown])\n",
+    "Selected icon version: \(icons[selected_icons])\n"
+];
+```
+<br>
+Результат программы:<br>
+![image](https://github.com/user-attachments/assets/41cd9d88-81dd-4e91-a216-14d60d73e361)
 
 ## Задание 6
 
