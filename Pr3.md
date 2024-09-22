@@ -65,3 +65,23 @@ cat Pr3_1zd.json
 ![image](https://github.com/user-attachments/assets/9328d131-bdff-4911-8a3c-2597d7a213ac)<br>
 
 # Задача 2
+Реализовать на Dhall приведенный выше пример в формате JSON. Использовать в реализации свойство программируемости и принцип Dry<br>
+
+Установим Dhall нас свой компьютер с помощью терминала:<br>
+```
+brew install dhall-json
+```
+Далее создадим файл Pr3.dhall, в который добавим код пример, и скомпилируем файл в JSON, выполнив:<br>
+```
+dhall-to-json --file Pr3.dhall > Pr3_2zd.json
+```
+Просмотреть содержимое файла JSON можно с помощью команды cat в терминале:<br>
+```
+cat Pr3_2zd.json
+```
+Результат:<br>
+
+![image](https://github.com/user-attachments/assets/6f3bf8e7-3932-4adf-8848-05d65e1e8a37)<br>
+
+#Задача 3
+
