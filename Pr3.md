@@ -249,9 +249,13 @@ for i in range(10):
 
 # Полезные ссылки
 
-[Configuration complexity clock:<br>](https://mikehadlow.blogspot.com/2012/05/configuration-complexity-clock.html)
-
-
+[Configuration complexity clock<br>](https://mikehadlow.blogspot.com/2012/05/configuration-complexity-clock.html)
+[Json<br>](https://www.json.org/json-ru.html)
+[Язык Jsonnet<br>](https://jsonnet.org/learning/tutorial.html)
+[Язык Dhall<br>](https://dhall-lang.org/)
+[Учебник в котором темы построения синтаксических анализаторов (БНФ, Lex/Yacc)
+изложены подробно<br>](https://ita.sibsutis.ru/sites/csc.sibsutis.ru/files/courses/trans/LanguagesAndTranslationMethods.pdf)
+[<br>]()
 
 
 
