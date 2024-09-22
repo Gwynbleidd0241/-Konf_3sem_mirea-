@@ -249,13 +249,10 @@ for i in range(10):
 
 # Полезные ссылки
 
-[Configuration complexity clock<br>](https://mikehadlow.blogspot.com/2012/05/configuration-complexity-clock.html)
-[Json<br>](https://www.json.org/json-ru.html)
-[Язык Jsonnet<br>](https://jsonnet.org/learning/tutorial.html)
-[Язык Dhall<br>](https://dhall-lang.org/)
+[Configuration complexity clock<br>](https://mikehadlow.blogspot.com/2012/05/configuration-complexity-clock.html)<br>
+[Json<br>](https://www.json.org/json-ru.html)<br>
+[Язык Jsonnet<br>](https://jsonnet.org/learning/tutorial.html)<br>
+[Язык Dhall<br>](https://dhall-lang.org/)<br>
 [Учебник в котором темы построения синтаксических анализаторов (БНФ, Lex/Yacc)
-изложены подробно<br>](https://ita.sibsutis.ru/sites/csc.sibsutis.ru/files/courses/trans/LanguagesAndTranslationMethods.pdf)
-[<br>]()
-
-
-
+изложены подробно<br>](https://ita.sibsutis.ru/sites/csc.sibsutis.ru/files/courses/trans/LanguagesAndTranslationMethods.pdf)<br>
+[Полезные материалы для разработчика (очень рекомендую посмотреть слайды и прочие ссылки, все это актуально и для других тем нашего курса)<br>](https://habr.com/ru/company/JetBrains-education/blog/547768/)
