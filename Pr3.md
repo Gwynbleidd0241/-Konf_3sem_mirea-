@@ -83,5 +83,5 @@ cat Pr3_2zd.json
 
 ![image](https://github.com/user-attachments/assets/6f3bf8e7-3932-4adf-8848-05d65e1e8a37)<br>
 
-#Задача 3
+# Задача 3
 
