@@ -178,3 +178,80 @@ for i in range(10):
 ~x <br>
 ~((x) & y | (y) | (x)) & x | x | (y & ~y) <br>
 
+```
+import random
+
+def parse_bnf(text):
+    grammar = {}
+    rules = [line.split('=') for line in text.strip().split('\n')]
+    for name, body in rules:
+        grammar[name.strip()] = [alt.split() for alt in body.split('|')]
+    return grammar
+
+def generate_phrase(grammar, start, max_depth=10, current_depth=0):
+    if current_depth > max_depth:
+        return ""
+    if start in grammar:
+        seq = random.choice(grammar[start])
+        return ''.join(generate_phrase(grammar, name, max_depth, current_depth + 1) for name in seq)
+    return str(start)
+
+BNF = """
+E = L | E & L | E | E | E
+L = x | y | "(" E ")" | "~" L | "(" E ")" | "~" L
+"""
+
+def format_phrase(phrase):
+    output = []
+    prev_char = None
+    open_count = 0
+
+    for char in phrase:
+        if char in ['x', 'y']:
+            if prev_char in ['x', 'y']:
+                continue
+            output.append(char)
+        elif char in ['&', '|']:
+            if len(output) < 2 or output[-1] in ['&', '|'] or (prev_char in ['(', ')']):
+                continue
+            output.append(char)
+        elif char == '(':
+            if prev_char == '(':
+                continue
+            output.append(char)
+            open_count += 1
+        elif char == ')':
+            if output and output[-1] == '(':
+                output.pop()
+                open_count -= 1
+                continue
+            if open_count > 0:
+                output.append(char)
+                open_count -= 1
+
+        prev_char = char
+
+    output = [c for c in output if not (c == '(' and (prev_char == '(' or (len(output) > 1 and output[-2] == '(')))]
+
+    return ''.join(output)
+
+for i in range(10):
+    phrase = generate_phrase(parse_bnf(BNF), 'E')
+    if phrase:
+        formatted_phrase = format_phrase(phrase)
+        if formatted_phrase:
+            print(formatted_phrase.replace('"', ''))
+```
+
+Часть результата вывода программы:<br>
+
+![image](https://github.com/user-attachments/assets/2d1211b4-b9d5-4b7a-aa24-a6c32de5d7aa)<br>
+
+# Полезные ссылки
+
+[Configuration complexity clock:<br>](https://mikehadlow.blogspot.com/2012/05/configuration-complexity-clock.html)
+
+
+
+
+
