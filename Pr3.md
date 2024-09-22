@@ -136,3 +136,45 @@ for i in range(10):
 ()<br>
 {}<br>
 
+```
+import random
+
+def parse_bnf(text):
+    grammar = {}
+    rules = [line.split('=') for line in text.strip().split('\n')]
+    for name, body in rules:
+        grammar[name.strip()] = [alt.split() for alt in body.split('|')]
+    return grammar
+
+def generate_phrase(grammar, start, max_depth=10, current_depth=0):
+    if current_depth > max_depth:
+        return ""
+    if start in grammar:
+        seq = random.choice(grammar[start])
+        return ''.join(generate_phrase(grammar, name, max_depth, current_depth + 1) for name in seq)
+    return str(start)
+
+BNF = """
+E = P E | F E | P | F 
+P = "(" P ")" | "(" ")" 
+F = "{" F "}" | "{}"
+"""
+
+for i in range(10):
+    phrase = generate_phrase(parse_bnf(BNF), 'E')
+    if phrase:
+        print(phrase.replace('"', ''))
+```
+
+Часть результата вывода программы:<br>
+
+![image](https://github.com/user-attachments/assets/17853a17-536b-4e93-bc99-36dd957c6b4a)<br>
+
+# Задача 5
+Язык выражений алгебры логики.<br>
+((~(y & x)) | (y) & ~x | ~x) & x <br>
+у & ~ (у) <br>
+(~(y) & y & ~y) <br>
+~x <br>
+~((x) & y | (y) | (x)) & x | x | (y & ~y) <br>
+
