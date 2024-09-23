@@ -4,8 +4,12 @@ from vfs import VirtualFileSystem
 
 def execute_command(vfs, command):
     parts = command.split()
-    cmd = parts[0]
     
+    if len(parts) == 0:
+        return
+        
+    cmd = parts[0]
+
     if cmd == "ls":
         print("\n".join(vfs.list_files()))
     elif cmd == "cd":
@@ -20,7 +24,8 @@ def execute_command(vfs, command):
             file_path = Path(vfs.current_path) / parts[1]
             if os.path.isfile(file_path):
                 content = vfs.read_file(file_path)
-                print("\n".join(content.splitlines()[-10:]))
+                lines = content.splitlines()
+                print("\n".join(lines[-10:]))
             else:
                 print(f"tail: {parts[1]}: No such file")
         else:
@@ -30,7 +35,14 @@ def execute_command(vfs, command):
             file_path = Path(vfs.current_path) / parts[1]
             if os.path.isfile(file_path):
                 content = vfs.read_file(file_path)
-                unique_lines = set(content.splitlines())
+                lines = content.splitlines()
+
+                unique_lines = []
+                seen = set()
+                for line in lines:
+                    if line not in seen:
+                        unique_lines.append(line)
+                        seen.add(line)
                 print("\n".join(unique_lines))
             else:
                 print(f"uniq: {parts[1]}: No such file")
@@ -40,4 +52,3 @@ def execute_command(vfs, command):
         print(vfs.current_path)
     else:
         print(f"{cmd}: command not found")
-
