@@ -48,7 +48,7 @@ local students = [
   students: students,
 }
 ```
-Установим Jsonnet на свой компьютер с помощью терминал:<br>
+Установим Jsonnet на свой компьютер с помощью терминала:<br>
 ```
 brew install jsonnet
 ```
@@ -56,7 +56,7 @@ brew install jsonnet
 ```
 jsonnet Pr3.jsonnet -o Pr3_1zd.json
 ```
-Просмотреть содержимое файла JSON можно с помощью команды cat в терминале:<br>
+Просмотреть содержимое файла JSON можно с помощью команды cat:<br>
 ```
 cat Pr3_1zd.json
 ```
@@ -75,7 +75,7 @@ brew install dhall-json
 ```
 dhall-to-json --file Pr3.dhall > Pr3_2zd.json
 ```
-Просмотреть содержимое файла JSON можно с помощью команды cat в терминале:<br>
+Просмотреть содержимое файла JSON можно с помощью команды cat:<br>
 ```
 cat Pr3_2zd.json
 ```
