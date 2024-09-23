@@ -113,20 +113,17 @@ def generate_phrase(grammar, start):
     return str(start)
 
 BNF = """
-E = S1 | S2 | S3 | S4 | S5
-S1 = "10"
-S2 = "100"
-S3 = "11"
-S4 = "101101"
-S5 = "000"
+E = "0" E | "1" E | ""
 """
 
 for i in range(10):
-    print(generate_phrase(parse_bnf(BNF), 'E'))
+    phrase = generate_phrase(parse_bnf(BNF), 'E')
+    if phrase:
+        print(phrase.replace('"', ''))
 ```
 В результате при запуске выполнения файла получим:<br>
 
-![image](https://github.com/user-attachments/assets/ecb83236-d0f7-46b2-a679-f15f1f67f1ad)<br>
+![image](https://github.com/user-attachments/assets/87807910-73c7-4dbb-ad86-3ad8efc07af6)<br>
 
 # Задача 4
 Язык правильно расставленных скобок двух видов.<br>
