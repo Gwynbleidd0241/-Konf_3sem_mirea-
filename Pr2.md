@@ -61,111 +61,206 @@ output ["Билет - ", show(numbers), " Сумма 3х цифр - ", show(Firs
 ![image](https://github.com/user-attachments/assets/2ff7b55c-e32e-4386-940a-1c26d584a3f6)<br>
 
 ```
-set of int: MenuVersions = 1..6;
-set of int: DropdownVersions = 1..5;
-set of int: IconVersions = 1..2;
+enum PACKAGES = { root, menu_1_0_0, menu_1_1_0, menu_1_2_0, menu_1_3_0, menu_1_4_0, menu_1_5_0, dropdown_1_8_0, dropdown_2_0_0, dropdown_2_1_0, dropdown_2_2_0, dropdown_2_3_0, icons_1_0_0, icons_2_0_0 };
 
-array[MenuVersions] of int: menu = [150, 140, 130, 120, 110, 100];
-array[DropdownVersions] of int: dropdown = [230, 220, 210, 200, 180];
-array[IconVersions] of int: icons = [200, 100];
+array[PACKAGES] of var 0..1: installed;
+constraint installed[root] == 1;
 
-var MenuVersions: selected_menu;
-var DropdownVersions: selected_dropdown;
-var IconVersions: selected_icons;
+constraint ((installed[root] == 1 -> installed[menu_1_0_0] == 1) \/ 
+    (installed[root] == 1 -> installed[menu_1_1_0] == 1) \/
+    (installed[root] == 1 -> installed[menu_1_2_0] == 1) \/
+    (installed[root] == 1 -> installed[menu_1_3_0] == 1) \/
+    (installed[root] == 1 -> installed[menu_1_4_0] == 1) \/
+    (installed[root] == 1 -> installed[menu_1_5_0] == 1));
+    
+constraint (installed[root] == 1 -> installed[icons_1_0_0] == 1);
 
-constraint
-    (selected_menu = 1 -> selected_dropdown in 1..3) /\
-    (selected_menu = 2 -> selected_dropdown in 2..4) /\
-    (selected_menu = 3 -> selected_dropdown in 3..5) /\
-    (selected_menu = 4 -> selected_dropdown in 4..5) /\
-    (selected_menu = 5 -> selected_dropdown = 5) /\
-    (selected_dropdown = 1 -> selected_icons = 1) /\
-    (selected_dropdown = 2 -> selected_icons in 1..2) /\
-    (selected_dropdown = 3 -> selected_icons in 1..2) /\
-    (selected_dropdown = 4 -> selected_icons in 1..2) /\
-    (selected_dropdown = 5 -> selected_icons in 1..2);
+constraint (installed[menu_1_1_0] == 1 -> installed[dropdown_2_3_0] == 1) \/ 
+    (installed[menu_1_1_0] == 1 -> installed[dropdown_2_2_0] == 1) \/ 
+    (installed[menu_1_1_0] == 1 -> installed[dropdown_2_1_0] == 1) \/  
+    (installed[menu_1_1_0] == 1 -> installed[dropdown_2_0_0] == 1);
+constraint (installed[menu_1_2_0] == 1 -> installed[dropdown_2_3_0] == 1) \/ 
+    (installed[menu_1_2_0] == 1 -> installed[dropdown_2_2_0] == 1) \/ 
+    (installed[menu_1_2_0] == 1 -> installed[dropdown_2_1_0] == 1) \/  
+    (installed[menu_1_2_0] == 1 -> installed[dropdown_2_0_0] == 1);
+constraint (installed[menu_1_3_0] == 1 -> installed[dropdown_2_3_0] == 1) \/ 
+    (installed[menu_1_3_0] == 1 -> installed[dropdown_2_2_0] == 1) \/ 
+    (installed[menu_1_3_0] == 1 -> installed[dropdown_2_1_0] == 1) \/  
+    (installed[menu_1_3_0] == 1 -> installed[dropdown_2_0_0] == 1);
+constraint (installed[menu_1_4_0] == 1 -> installed[dropdown_2_3_0] == 1) \/ 
+    (installed[menu_1_4_0] == 1 -> installed[dropdown_2_2_0] == 1) \/ 
+    (installed[menu_1_4_0] == 1 -> installed[dropdown_2_1_0] == 1) \/  
+    (installed[menu_1_4_0] == 1 -> installed[dropdown_2_0_0] == 1);
+constraint (installed[menu_1_5_0] == 1 -> installed[dropdown_2_3_0] == 1) \/ 
+    (installed[menu_1_5_0] == 1 -> installed[dropdown_2_2_0] == 1) \/ 
+    (installed[menu_1_5_0] == 1 -> installed[dropdown_2_1_0] == 1) \/  
+    (installed[menu_1_5_0] == 1 -> installed[dropdown_2_0_0] == 1);
+    
+constraint (installed[menu_1_0_0] == 1) -> (installed[dropdown_1_8_0] == 1);
+constraint ((installed[dropdown_2_0_0] == 1) -> (installed[icons_2_0_0] == 1));
+constraint ((installed[dropdown_2_1_0] == 1) -> (installed[icons_2_0_0] == 1));
+constraint ((installed[dropdown_2_2_0] == 1) -> (installed[icons_2_0_0] == 1));
+constraint ((installed[dropdown_2_3_0] == 1) -> (installed[icons_2_0_0] == 1));
 
-solve satisfy;
-
-output [
-    "Selected menu version: \(menu[selected_menu])\n",
-    "Selected dropdown version: \(dropdown[selected_dropdown])\n",
-    "Selected icon version: \(icons[selected_icons])\n"
-];
+solve minimize(sum(installed));
+output ["Installed packages: ", show(installed)];
 ```
 <br>
 
 Результат программы:<br>
 
-![image](https://github.com/user-attachments/assets/a48861aa-5471-4d91-8b15-bd3c1ccb6281)<br>
+![image](https://github.com/user-attachments/assets/93d47eae-5419-483c-a8a0-9e4f28a01d16)<br>
 
 ## Задание 6
 
 ![image](https://github.com/user-attachments/assets/b1efad2a-d648-4588-b404-54a5d4742da5)<br>
 
 ```
-set of int: FooVersions = 1..2;
-set of int: LeftVersions = 1..1;
-set of int: RightVersions = 1..1;
-set of int: SharedVersions = 1..2;
-set of int: TargetVersions = 1..2;
-set of int: RootVersions = 1..1; 
+enum PACKAGES = {root, foo_1_0_0, foo_1_1_0, target_1_0_0, target_2_0_0, left_1_0_0, right_1_0_0, shared_1_0_0, shared_2_0_0};
 
-var FooVersions: selected_foo;
-var LeftVersions: selected_left;
-var RightVersions: selected_right;
-var SharedVersions: selected_shared;
-var TargetVersions: selected_target;
-var RootVersions: selected_root;
+array[PACKAGES] of var 0..1: installed;
+constraint installed[root] == 1;
 
-constraint selected_root = 1;
-constraint selected_foo = 1;
-constraint selected_target = 2;
-constraint selected_left = 1;
-constraint selected_right = 1;
-constraint selected_shared >= 1;
-constraint selected_shared < 2;
+constraint ((installed[root] == 1 -> installed[foo_1_0_0] == 1) \/ 
+    (installed[root] == 1 -> installed[foo_1_1_0] == 1));
+    
+constraint (installed[root] == 1 -> installed[target_2_0_0] == 1);
 
-solve satisfy;
+constraint ((installed[foo_1_1_0] == 1 -> installed[left_1_0_0] == 1) \/ 
+    (installed[foo_1_1_0] == 1 -> installed[right_1_0_0] == 1));
+    
+constraint ((installed[left_1_0_0] == 1 -> installed[shared_1_0_0] == 1) \/ 
+    (installed[left_1_0_0] == 1 -> installed[shared_2_0_0] == 1));
+    
+constraint (installed[right_1_0_0] == 1 -> installed[shared_1_0_0] == 1);
 
-output [
-  "Версия foo: ", show(selected_foo),".0.0", "\n",
-  "Версия left: ", show(selected_left),".0.0", "\n",
-  "Версия right: ", show(selected_right),".0.0", "\n",
-  "Версия shared: ", show(selected_shared),".0.0", "\n",
-  "Версия target: ", show(selected_target),".0.0", "\n",
-  "Версия root: ", show(selected_root),".0.0", "\n"
-];
+constraint (installed[shared_1_0_0] == 1 -> installed[target_1_0_0] == 1);
+
+solve minimize(sum(installed));
 ```
 В результате получим:<br>
 
-![image](https://github.com/user-attachments/assets/e726a118-3b09-4321-95b2-c8a32c6d29bc)<br>
+![image](https://github.com/user-attachments/assets/76a6735c-5b57-43e2-be21-ba78c9d86778)<br>
 
 ## Задание 7
 Представить на MiniZinc задачу о зависимостях пакетов в общей форме, чтобы конкретный экземпляр задачи описывался только
 своим набором данных.<br>
+
+Представить задачу о зависимостях пакетов в общей форме. Здесь необходимо действовать аналогично реальному менеджеру пакетов. То есть получить описание пакета, а также его зависимости в виде структуры данных. Например, в виде словаря. В предыдущих задачах зависимости были явно заданы в системе ограничений. Теперь же систему ограничений надо построить автоматически, по метаданным.
+
+Код на python:<br>
 ```
-int: num_packages;
+packages = {
+    "root": {"dependencies": ["^foo_1_0_0", "<=target_2_0_0"]},
+    "foo_1_1_0": {"dependencies": ["^left_1_0_0", "^right_1_0_0"]},
+    "left_1_0_0": {"dependencies": [">=shared_1_0_0"]},
+    "right_1_0_0": {"dependencies": ["<shared_2_0_0"]},
+    "shared_1_0_0": {"dependencies": ["^target_1_0_0"]},
+    "shared_2_0_0": {"dependencies": []},
+    "target_1_0_0": {"dependencies": []},
+    "target_2_0_0": {"dependencies": []}
+}
+cnt_pack = {}
+keys_list = list(packages.keys())
+for key in keys_list:
+    cnt_pack[key.split('_')[0]] = 'constraint ('
+    
+def satisfy_condition(condition):
+    result = ""
+    if condition.startswith('^'):
+        base_version = condition[1:].split('_')
+        for key in keys_list:
+            check_vers = key.split('_')
+            if key.startswith(base_version[0]) and check_vers[1] == base_version[1] and check_vers[1] >= base_version[2]:
+                result += f"installed[{key}] == 1 \/ "
+        result = result[:-4]
+    elif condition.startswith('>='):
+        base_version = condition[2:].split('_')
+        for key in keys_list:
+            check_vers = key.split('_')
+            if key.startswith(base_version[0]) and (check_vers[1] > base_version[1] or (check_vers[1] == base_version[1] and check_vers[2] >= base_version[2])):
+                result += f"installed[{key}] == 1 \/ "
+        result = result[:-4]
+    elif condition.startswith('<='):
+        base_version = condition[2:].split('_')
+        for key in keys_list:
+            check_vers = key.split('_')
+            if key.startswith(base_version[0]) and (check_vers[1] < base_version[1] or (check_vers[1] == base_version[1] and check_vers[2] <= base_version[2])):
+                result += f"installed[{key}] == 1 \/ "
+        result = result[:-4]
+    elif condition.startswith('<'):
+        base_version = condition[1:].split('_')
+        for key in keys_list:
+            check_vers = key.split('_')
+            if key.startswith(base_version[0]) and (check_vers[1] < base_version[1] or (check_vers[1] == base_version[1] and
+                                                                                         check_vers[2] < base_version[2])):
+                result += f"installed[{key}] == 1 \/ "
+        result = result[:-4]
+    elif condition.startswith('>'):
+        base_version = condition[1:].split('_')
+        for key in keys_list:
+            check_vers = key.split('_')
+            if key.startswith(base_version[0]) and (check_vers[1] > base_version[1] or (check_vers[1] == base_version[1] and
+                                                                                         check_vers[2] > base_version[2])):
+                result += f"installed[{key}] == 1 \/ "
+        result = result[:-4]
+    return "(" + result + ")"
 
-set of int: Packages = 1..num_packages;
+def generate_minizinc_code(packages):
+    package_names = ', '.join(keys_list)
+    minizinc_code = f"enum PACKAGES = {{{package_names}}};\n"
+    minizinc_code += "array[PACKAGES] of var 0..1: installed;\n\n"
+    minizinc_code += "constraint installed[root] == 1;\n"
+    for package, details in packages.items():
+        dependencies = details["dependencies"]
+        if dependencies:
+            dep_constraints = []
+            for dep in dependencies:
+                if dep.startswith(('^', '>=', '<=', '>', '<')):
+                    constraint = satisfy_condition(dep)
+                    if constraint:
+                        dep_constraints.append(constraint)
+                else:
+                    dep_constraints.append(f"installed[{dep}] == 1")
+            constraint = "constraint installed[{}] == 1 -> ({});\n".format(
+                package, ' /\\ '.join(dep_constraints)
+            )
+            minizinc_code += constraint
+    minizinc_code += "\n"
+    for i in keys_list:
+        cnt_pack[i.split('_')[0]] += f"installed[{i}] + "
+    for i in list(cnt_pack.keys()):
+        minizinc_code += cnt_pack[i][:-3] + ") <= 1;\n"
+        
+    minizinc_code += "\nsolve minimize sum(installed);\n"
+    return minizinc_code
 
-array[Packages] of set of int: Versions;
-
-array[Packages] of var int: selected_version;
-
-array[Packages] of set of int: dependencies;
-
-array[Packages, Packages] of int: min_version;
-
-array[Packages, Packages] of int: max_version;
-
-constraint
-  forall(i in Packages) (
-    forall(dep in dependencies[i]) (
-      selected_version[dep] >= min_version[i, dep] /\
-      selected_version[dep] <= max_version[i, dep]
-    )
-  );
-
-solve satisfy;
+minizinc_code = generate_minizinc_code(packages)
+print(minizinc_code)
 ```
+
+Сгенерированный код на MiniZinc:<br>
+```
+enum PACKAGES = {root, foo_1_1_0, left_1_0_0, right_1_0_0, shared_1_0_0, shared_2_0_0, target_1_0_0, target_2_0_0};
+array[PACKAGES] of var 0..1: installed;
+
+constraint installed[root] == 1;
+constraint installed[root] == 1 -> ((installed[foo_1_1_0] == 1) /\ (installed[target_1_0_0] == 1 \/ installed[target_2_0_0] == 1));
+constraint installed[foo_1_1_0] == 1 -> ((installed[left_1_0_0] == 1) /\ (installed[right_1_0_0] == 1));
+constraint installed[left_1_0_0] == 1 -> ((installed[shared_1_0_0] == 1 \/ installed[shared_2_0_0] == 1));
+constraint installed[right_1_0_0] == 1 -> ((installed[shared_1_0_0] == 1));
+constraint installed[shared_1_0_0] == 1 -> ((installed[target_1_0_0] == 1));
+
+constraint (installed[root]) <= 1;
+constraint (installed[foo_1_1_0]) <= 1;
+constraint (installed[left_1_0_0]) <= 1;
+constraint (installed[right_1_0_0]) <= 1;
+constraint (installed[shared_1_0_0] + installed[shared_2_0_0]) <= 1;
+constraint (installed[target_1_0_0] + installed[target_2_0_0]) <= 1;
+
+solve minimize sum(installed);
+```
+
+Полученный ответ:<br>
+
+![image](https://github.com/user-attachments/assets/95c90485-0182-48ac-961c-3f3bfc6a8a74)
