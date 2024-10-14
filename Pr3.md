@@ -193,10 +193,13 @@ def generate_phrase(grammar, start, max_depth=10, current_depth=0):
         return ''.join(generate_phrase(grammar, name, max_depth, current_depth + 1) for name in seq)
     return str(start)
 
-BNF = """
-E = L | E & L | E | E | E
-L = x | y | "(" E ")" | "~" L | "(" E ")" | "~" L
-"""
+BNF = '''
+E = ( E B F ) | U ( E ) | F
+F = P B P | U P | P
+P = x | y | (x) | (y)
+U = ~
+B = & | V
+'''
 
 def format_phrase(phrase):
     output = []
@@ -242,7 +245,7 @@ for i in range(10):
 
 Часть результата вывода программы:<br>
 
-![image](https://github.com/user-attachments/assets/2d1211b4-b9d5-4b7a-aa24-a6c32de5d7aa)<br>
+![image](https://github.com/user-attachments/assets/9cebefbc-d657-4aff-9478-a34a1f8b32da)<br>
 
 # Полезные ссылки
 
