@@ -79,6 +79,12 @@ brew install dhall-json
 ```
 dhall-to-json --file Pr3.dhall > Pr3_2zd.json
 ```
+Просмотреть содежимое файла Pr3.dhall можно с помощью команды nano:<br>
+
+![image](https://github.com/user-attachments/assets/610a990b-117f-4e29-b33f-492e352d01e9)
+
+![image](https://github.com/user-attachments/assets/bc124c15-693f-44bc-a8fc-6532166fd06b)
+
 Просмотреть содержимое файла JSON можно с помощью команды cat:<br>
 ```
 cat Pr3_2zd.json
