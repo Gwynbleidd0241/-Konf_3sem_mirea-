@@ -56,6 +56,10 @@ brew install jsonnet
 ```
 jsonnet Pr3.jsonnet -o Pr3_1zd.json
 ```
+Просмотреть содержимое файла Pr3.jsonnet с помощью nano:<br>
+
+![image](https://github.com/user-attachments/assets/a7b1614e-fb5f-45dc-a6ab-a04295d456bf)
+
 Просмотреть содержимое файла JSON можно с помощью команды cat:<br>
 ```
 cat Pr3_1zd.json
