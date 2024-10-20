@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <visualizationTool>/opt/homebrew/bin/dot</visualizationTool>
+    <repositoryPath>/Users/gwynbleidd/Desktop/2nd homework/Java</repositoryPath>
+    <outputPath>/Users/gwynbleidd/Desktop/2nd homework/files/output.dot</outputPath>
+    <branchName>master</branchName>
+</config>
