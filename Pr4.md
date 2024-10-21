@@ -1,6 +1,6 @@
 # Практическое задание №4
 
-## Задание 0
+## Задача 0
 
 Работа с утилитой Make.
 Изучить основы языка утилиты таке. Распаковать в созданный каталог make.zip, если у вас в в системе нет таке. Создать приведенный ниже Makefile и проверить его работоспособность.
@@ -36,4 +36,52 @@ socks: pullover
 
 ![image](https://github.com/user-attachments/assets/625ca26f-fb23-4ca9-a1d4-4e2d2eb4a8d0)<br>
 
-## Задание 1
+## Задача 1
+Написать программу на Питоне, которая транслирует граф зависимостей civgraph в makefile в духе примера выше. Для мало знакомых с Питоном используется упрощенный вариант civgraph: civgraph.json.
+
+```
+import json
+
+def generate_makefile(graph):
+    with open('Makefile', 'w') as f:
+        for target, deps in graph.items():
+            deps_str = ' '.join(deps)
+            f.write(f'{target}: {deps_str}\n')
+            f.write(f'\t@echo "Building {target}"\n\n')
+
+if __name__ == '__main__':
+    with open('civgraph.json') as file:
+        graph = json.load(file)
+    generate_makefile(graph)
+    print("Makefile создан.")
+```
+
+```
+{
+    "mathematics": ["drama_poetry", "mysticism"],
+    "drama_poetry": ["foreign_trade"],
+    "foreign_trade": ["code_of_laws"],
+    "mysticism": ["early_empire"],
+    "early_empire": ["pottery"],
+    "pottery": [],
+    "code_of_laws": [],
+    "mining": [],
+    "bronze_working": ["mining"],
+    "sailing": ["astrology"],
+    "astrology": [],
+    "celestial_navigation": ["sailing"],
+    "writing": ["pottery"],
+    "irrigation": [],
+    "currency": [],
+    "masonry": []
+}
+```
+
+В результате получим:<br>
+
+![image](https://github.com/user-attachments/assets/d397bb13-349a-4b9e-9d81-8a8a51d0fe7b)<br>
+
+## Задача №2
+Реализовать вариант трансляции, при котором повторный запуск таке не выводит для civgraph на экран уже выполненные "задачи":<br>
+
+
