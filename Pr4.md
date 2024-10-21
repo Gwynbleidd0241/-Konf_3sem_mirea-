@@ -23,3 +23,17 @@ socks: pullover
   @echo "Putting on socks."
 ```
 Визуализировать файл civgraph.txt.
+
+Результат:
+
+![image](https://github.com/user-attachments/assets/e06d9993-c93d-4081-95ec-1c5880a2ee4e)<br>
+
+Для визуализации напишем код на Python:<br>
+
+![image](https://github.com/user-attachments/assets/de22e87f-cb3c-4ba0-b82a-b60048ccd475)<br>
+
+В результате получим:<br>
+
+![image](https://github.com/user-attachments/assets/625ca26f-fb23-4ca9-a1d4-4e2d2eb4a8d0)<br>
+
+## Задание 1
