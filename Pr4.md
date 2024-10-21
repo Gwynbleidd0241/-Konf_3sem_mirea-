@@ -39,6 +39,7 @@ socks: pullover
 ## Задача 1
 Написать программу на Питоне, которая транслирует граф зависимостей civgraph в makefile в духе примера выше. Для мало знакомых с Питоном используется упрощенный вариант civgraph: civgraph.json.
 
+Содержимое pr4_1.py:<br>
 ```
 import json
 
@@ -56,6 +57,7 @@ if __name__ == '__main__':
     print("Makefile создан.")
 ```
 
+Содержимое civgraph.json:<br>
 ```
 {
     "mathematics": ["drama_poetry", "mysticism"],
