@@ -108,3 +108,38 @@ dir /B › files.lst
 ```
 Вместо gcc можно использовать другой компилятор командной строки, но на вход ему должны подаваться два модуля: рrod и data. Если используете не Windows, то исправьте вызовы команд на их эквиваленты из вашей ОС. В makefile должны быть, как минимум, следующие задачи: all, clean, archive. Обязательно покажите на примере, что уже сделанные подзадачи у вас не перестраиваются:<br>
 
+![image](https://github.com/user-attachments/assets/cfe4fecd-b4d6-4479-b878-17f712829f39)<br>
+
+Содержимое Makefile:
+```
+SRC = prod.go data.go
+OUT = prod
+ARCHIVE = archive.zip
+
+all: $(OUT) $(ARCHIVE)
+
+$(OUT): $(SRC)
+        go build -o $(OUT) $(SRC)
+        @echo "$(OUT) builded."
+SRC = prod.go data.go
+OUT = prod
+ARCHIVE = archive.zip
+
+all: $(OUT) $(ARCHIVE)
+
+$(OUT): $(SRC)
+        go build -o $(OUT) $(SRC)
+        @echo "$(OUT) builded."
+
+$(ARCHIVE): $(OUT)
+        zip -r $(ARCHIVE) $(SRC) $(OUT)
+        @echo "Archived in $(ARCHIVE)."
+
+clean:
+        rm -f $(OUT) $(ARCHIVE)
+        @echo "Cleaned."
+
+.PHONY: all clean
+```
+
+![image](https://github.com/user-attachments/assets/f7383213-d93b-4f80-ab1c-f5ba2d10726c)
