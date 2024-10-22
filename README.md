@@ -1,4 +1,5 @@
 - [Dz1(finished)](https://github.com/Gwynbleidd0241/--Konf./tree/main/Dz1)
+- [Dz2(finished)](https://github.com/Gwynbleidd0241/-Konf_3sem_mirea-/tree/main/Dz2)
 - [Pr1(finished)](https://github.com/Gwynbleidd0241/--Konf./blob/main/Pr1.md)
 - [Pr2(finished)](https://github.com/Gwynbleidd0241/--Konf./blob/main/Pr2.md)
 - [Pr3(finished)](https://github.com/Gwynbleidd0241/-Konf_3sem_mirea-/blob/main/Pr3.md)
