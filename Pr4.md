@@ -85,5 +85,11 @@ if __name__ == '__main__':
 
 ## Задача №2
 Реализовать вариант трансляции, при котором повторный запуск таке не выводит для civgraph на экран уже выполненные "задачи":<br>
+Содержимое pr4_2.py:<br>
 
+![image](https://github.com/user-attachments/assets/b0be5237-ef17-451f-8542-71f7b1508c7f)<br>
 
+![image](https://github.com/user-attachments/assets/09d92ed7-c5df-4c87-9337-088918bb8400)<br>
+
+## Задача №3
+Добавить цель clean, не забыв и про "животное":<br>
