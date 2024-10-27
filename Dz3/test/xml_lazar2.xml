@@ -1,0 +1,19 @@
+<root>
+    <constant name="pi">3.14</constant>
+    <array>
+        <element>1</element>
+        <element>2</element>
+        <element>3</element>
+    </array>
+    <dictionary>
+        <key>one</key>
+        <value>1</value>
+        <key>two</key>
+        <value>2</value>
+    </dictionary>
+    <expression>
+        <operator>+</operator>
+        <operand>1</operand>
+        <operand>2</operand>
+    </expression>
+</root>

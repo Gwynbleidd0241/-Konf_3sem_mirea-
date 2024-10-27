@@ -1,0 +1,12 @@
+<root>
+    <comment>This is a test XML file</comment>
+    <constant name="gravity">9.81</constant>
+    <array>
+        <element>apple</element>
+        <element>banana</element>
+    </array>
+    <expression>
+        <operator>print</operator>
+        <operand>gravity</operand>
+    </expression>
+</root>
