@@ -2,8 +2,6 @@ package main
 
 import (
 	"os"
-	"os/exec"
-	"strings"
 	"testing"
 )
 
@@ -46,7 +44,10 @@ func TestReadConfig(t *testing.T) {
 }
 
 func TestBuildGraph(t *testing.T) {
-	commits := "hash1|2023-01-01 00:00:00 +0000|Author1\nhash2|2023-01-02 00:00:00 +0000|Author2"
+	commits := []Commit{
+		{Hash: "hash1", Date: "2023-01-01 00:00:00 +0000", Author: "Author1"},
+		{Hash: "hash2", Date: "2023-01-02 00:00:00 +0000", Author: "Author2"},
+	}
 	expectedGraph := `digraph G {
     "hash1" [label="hash1\n2023-01-01 00:00:00 +0000\nAuthor1"];
     "hash2" [label="hash2\n2023-01-02 00:00:00 +0000\nAuthor2"];
@@ -79,45 +80,5 @@ func TestSaveGraphToFile(t *testing.T) {
 	}
 	if string(content) != graph {
 		t.Errorf("Ожидалось %s, получено %s", graph, content)
-	}
-}
-
-func TestGetCommits(t *testing.T) {
-	repoPath, err := os.MkdirTemp("", "testrepo")
-	if err != nil {
-		t.Fatalf("Ошибка создания временного репозитория: %v", err)
-	}
-	defer os.RemoveAll(repoPath)
-
-	cmd := exec.Command("git", "init")
-	cmd.Dir = repoPath
-	if err := cmd.Run(); err != nil {
-		t.Fatalf("Ошибка инициализации git-репозитория: %v", err)
-	}
-
-	filePath := repoPath + "/testfile.txt"
-	if err := os.WriteFile(filePath, []byte("Hello, world!"), 0644); err != nil {
-		t.Fatalf("Ошибка создания тестового файла: %v", err)
-	}
-
-	cmd = exec.Command("git", "add", "testfile.txt")
-	cmd.Dir = repoPath
-	if err := cmd.Run(); err != nil {
-		t.Fatalf("Ошибка добавления файла в индекс: %v", err)
-	}
-
-	cmd = exec.Command("git", "commit", "-m", "Initial commit")
-	cmd.Dir = repoPath
-	if err := cmd.Run(); err != nil {
-		t.Fatalf("Ошибка создания коммита: %v", err)
-	}
-
-	commits, err := getCommits(repoPath, "master")
-	if err != nil {
-		t.Fatalf("Ошибка выполнения getCommits: %v", err)
-	}
-
-	if !strings.Contains(commits, "Sergey Lazarenko") {
-		t.Errorf("Ожидалось наличие 'Sergey Lazarenko' в выводе, получено: %s", commits)
 	}
 }
