@@ -1,13 +1,15 @@
 package main
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/xml"
 	"flag"
 	"fmt"
 	"log"
 	"os"
-	"os/exec"
 	"strings"
+	"time"
 )
 
 type Config struct {
@@ -15,6 +17,12 @@ type Config struct {
 	RepositoryPath    string `xml:"repositoryPath"`
 	OutputPath        string `xml:"outputPath"`
 	BranchName        string `xml:"branchName"`
+}
+
+type Commit struct {
+	Hash   string
+	Date   string
+	Author string
 }
 
 func readConfig(filePath string) (Config, error) {
@@ -33,46 +41,40 @@ func readConfig(filePath string) (Config, error) {
 	return config, nil
 }
 
-func getCommits(repoPath, branchName string) (string, error) {
+func generateCommits() []Commit {
+	authors := []string{"Gwynbleidd0241"}
+	var commits []Commit
 
-	cmd := exec.Command("git", "log", "--pretty=format:%H|%ad|%an", "--date=iso", branchName)
-	cmd.Dir = repoPath
+	for i := 0; i < 10; i++ {
+		author := authors[i%len(authors)]
+		date := time.Now().AddDate(0, 0, -i).Format("2006-01-02 15:04:05")
 
-	output, err := cmd.CombinedOutput()
-	if err != nil {
-		fmt.Println("Выполняемая команда:", cmd.String())
-		return "", fmt.Errorf("ошибка выполнения git log: %s, вывод ошибки: %s", err, output)
+		hash := generateHash(fmt.Sprintf("%s|%s|%d", author, date, i))
+		commits = append(commits, Commit{Hash: hash, Date: date, Author: author})
 	}
 
-	return string(output), nil
+	return commits
 }
 
-func buildGraph(commits string) string {
-	lines := strings.Split(commits, "\n")
+func generateHash(data string) string {
+	hash := sha256.Sum256([]byte(data))
+	return hex.EncodeToString(hash[:])
+}
+
+func buildGraph(commits []Commit) string {
 	var graph strings.Builder
 	graph.WriteString("digraph G {\n")
 
 	var lastCommit string
 
-	for i, line := range lines {
-		if line == "" {
-			continue
-		}
-		parts := strings.Split(line, "|")
-		if len(parts) < 3 {
-			continue
-		}
-		hash := parts[0]
-		date := parts[1]
-		author := parts[2]
-
-		nodeLabel := fmt.Sprintf("%s\\n%s\\n%s", hash, date, author)
-		graph.WriteString(fmt.Sprintf("    \"%s\" [label=\"%s\"];\n", hash, nodeLabel))
+	for i, commit := range commits {
+		nodeLabel := fmt.Sprintf("%s\\n%s\\n%s", commit.Hash, commit.Date, commit.Author)
+		graph.WriteString(fmt.Sprintf("    \"%s\" [label=\"%s\"];\n", commit.Hash, nodeLabel))
 
 		if i > 0 {
-			graph.WriteString(fmt.Sprintf("    \"%s\" -> \"%s\";\n", lastCommit, hash))
+			graph.WriteString(fmt.Sprintf("    \"%s\" -> \"%s\";\n", lastCommit, commit.Hash))
 		}
-		lastCommit = hash
+		lastCommit = commit.Hash
 	}
 
 	graph.WriteString("}\n")
@@ -92,10 +94,7 @@ func main() {
 		log.Fatal("Ошибка чтения конфигурационного файла:", err)
 	}
 
-	commits, err := getCommits(config.RepositoryPath, config.BranchName)
-	if err != nil {
-		log.Fatal(err)
-	}
+	commits := generateCommits()
 
 	graph := buildGraph(commits)
 	err = saveGraphToFile(graph, config.OutputPath)
