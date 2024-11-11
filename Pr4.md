@@ -250,3 +250,32 @@ gwynbleidd@MacBook-Air-Sergej-3 coder2 % git log --graph --all
 
 ## Задача 4
 
+Написать программу на Питоне (или другом ЯП), которая выводит список содержимого всех объектов репозитория. Воспользоваться командой "git cat-file -p". Идеальное решение – не использовать иных сторонних команд и библиотек для работы с git:<br>
+
+```
+import subprocess
+
+
+def list_git_objects():
+    try:
+        result = subprocess.run(
+            ["git", "rev-list", "--all", "--objects"],
+            capture_output=True, text=True, check=True
+        )
+        return [line.split()[0] for line in result.stdout.splitlines()]
+    except subprocess.CalledProcessError:
+        print("Ошибка при получении списка объектов")
+        return []
+
+
+def main():
+    for obj in list_git_objects():
+        print(f"\n{'=' * 45}\nHash {obj}\n{'=' * 45}")
+        subprocess.run(["git", "cat-file", "-p", obj], check=True)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+![image](https://github.com/user-attachments/assets/1ad74364-fd6d-45d9-9a6e-7438e0747881)<br>
