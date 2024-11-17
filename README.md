@@ -8,3 +8,4 @@
 - [Pr4(finished)](https://github.com/Gwynbleidd0241/-Konf_3sem_mirea-/blob/main/Pr4.md)
 - [Pr5(finished)](https://github.com/Gwynbleidd0241/-Konf_3sem_mirea-/blob/main/Pr5.md)
 - [Pr6(finished)](https://github.com/Gwynbleidd0241/-Konf_3sem_mirea-/blob/main/Pr6.md)
+- [Pr7(unfinished)](https://github.com/Gwynbleidd0241/-Konf_3sem_mirea-/blob/main/Pr7.md)
