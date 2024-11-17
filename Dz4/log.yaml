@@ -1,0 +1,205 @@
+-   args:
+    - 1
+    - 1
+    binary: 0f0101
+    command: LOAD_CONSTANT
+-   args:
+    - 2
+    - 2
+    binary: 0f0202
+    command: LOAD_CONSTANT
+-   args:
+    - 3
+    - 3
+    binary: 0f0303
+    command: LOAD_CONSTANT
+-   args:
+    - 4
+    - 4
+    binary: 0f0404
+    command: LOAD_CONSTANT
+-   args:
+    - 5
+    - 5
+    binary: 0f0505
+    command: LOAD_CONSTANT
+-   args:
+    - 1
+    - 0
+    binary: 0c0100
+    command: WRITE_MEMORY
+-   args:
+    - 2
+    - 1
+    binary: 0c0201
+    command: WRITE_MEMORY
+-   args:
+    - 3
+    - 2
+    binary: 0c0302
+    command: WRITE_MEMORY
+-   args:
+    - 4
+    - 3
+    binary: 0c0403
+    command: WRITE_MEMORY
+-   args:
+    - 5
+    - 4
+    binary: 0c0504
+    command: WRITE_MEMORY
+-   args:
+    - 6
+    - 6
+    binary: 0f0606
+    command: LOAD_CONSTANT
+-   args:
+    - 7
+    - 7
+    binary: 0f0707
+    command: LOAD_CONSTANT
+-   args:
+    - 8
+    - 8
+    binary: 0f0808
+    command: LOAD_CONSTANT
+-   args:
+    - 9
+    - 9
+    binary: 0f0909
+    command: LOAD_CONSTANT
+-   args:
+    - 10
+    - 10
+    binary: 0f0a0a
+    command: LOAD_CONSTANT
+-   args:
+    - 6
+    - 5
+    binary: 0c0605
+    command: WRITE_MEMORY
+-   args:
+    - 7
+    - 6
+    binary: 0c0706
+    command: WRITE_MEMORY
+-   args:
+    - 8
+    - 7
+    binary: 0c0807
+    command: WRITE_MEMORY
+-   args:
+    - 9
+    - 8
+    binary: 0c0908
+    command: WRITE_MEMORY
+-   args:
+    - 10
+    - 9
+    binary: 0c0a09
+    command: WRITE_MEMORY
+-   args:
+    - 101
+    - 5
+    binary: '006505'
+    command: READ_MEMORY
+-   args:
+    - 201
+    - 0
+    binary: 00c900
+    command: READ_MEMORY
+-   args:
+    - 15
+    - 15
+    binary: 0f0f0f
+    command: LOAD_CONSTANT
+-   args:
+    - 201
+    - 15
+    binary: 0cc90f
+    command: WRITE_MEMORY
+-   args:
+    - 15
+    - 101
+    binary: 0a0f65
+    command: BINARY_LESS
+-   args:
+    - 102
+    - 6
+    binary: '006606'
+    command: READ_MEMORY
+-   args:
+    - 202
+    - 1
+    binary: 00ca01
+    command: READ_MEMORY
+-   args:
+    - 16
+    - 16
+    binary: 0f1010
+    command: LOAD_CONSTANT
+-   args:
+    - 16
+    - 102
+    binary: 0a1066
+    command: BINARY_LESS
+-   args:
+    - 103
+    - 7
+    binary: '006707'
+    command: READ_MEMORY
+-   args:
+    - 203
+    - 2
+    binary: 00cb02
+    command: READ_MEMORY
+-   args:
+    - 17
+    - 17
+    binary: 0f1111
+    command: LOAD_CONSTANT
+-   args:
+    - 17
+    - 103
+    binary: 0a1167
+    command: BINARY_LESS
+-   args:
+    - 104
+    - 8
+    binary: 006808
+    command: READ_MEMORY
+-   args:
+    - 204
+    - 3
+    binary: 00cc03
+    command: READ_MEMORY
+-   args:
+    - 18
+    - 18
+    binary: 0f1212
+    command: LOAD_CONSTANT
+-   args:
+    - 18
+    - 104
+    binary: 0a1268
+    command: BINARY_LESS
+-   args:
+    - 105
+    - 9
+    binary: 006909
+    command: READ_MEMORY
+-   args:
+    - 205
+    - 4
+    binary: 00cd04
+    command: READ_MEMORY
+-   args:
+    - 19
+    - 19
+    binary: 0f1313
+    command: LOAD_CONSTANT
+-   args:
+    - 19
+    - 105
+    binary: 0a1369
+    command: BINARY_LESS
